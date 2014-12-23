@@ -36,7 +36,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 # Object Files
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/1472/bmc.o \
-	${OBJECTDIR}/_ext/1360920745/daq.o
+	${OBJECTDIR}/_ext/1360920745/daq.o \
+	${OBJECTDIR}/bmcnet.o
 
 
 # C Compiler Flags
@@ -72,6 +73,11 @@ ${OBJECTDIR}/_ext/1360920745/daq.o: ../bmc/daq.c
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360920745
 	${RM} "$@.d"
 	$(COMPILE.c) -g `pkg-config --cflags comedilib` `pkg-config --cflags xaw7`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1360920745/daq.o ../bmc/daq.c
+
+${OBJECTDIR}/bmcnet.o: bmcnet.c 
+	${MKDIR} -p ${OBJECTDIR}
+	${RM} "$@.d"
+	$(COMPILE.c) -g `pkg-config --cflags comedilib` `pkg-config --cflags xaw7`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bmcnet.o bmcnet.c
 
 # Subprojects
 .build-subprojects:
