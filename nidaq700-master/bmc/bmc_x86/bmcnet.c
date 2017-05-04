@@ -3,6 +3,7 @@
     Remote DAQ client example using sockets
  */
 #include<stdio.h> //printf
+#include <unistd.h>
 #include<string.h>    //strlen
 #include<sys/socket.h>    //socket
 #include<arpa/inet.h> //inet_addr
