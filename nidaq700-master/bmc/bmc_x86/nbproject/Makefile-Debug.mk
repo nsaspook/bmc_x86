@@ -37,6 +37,7 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 OBJECTFILES= \
 	${OBJECTDIR}/_ext/1472/bmc.o \
 	${OBJECTDIR}/_ext/1360920745/daq.o \
+	${OBJECTDIR}/_ext/1360920745/main.o \
 	${OBJECTDIR}/bmcnet.o
 
 
@@ -62,7 +63,7 @@ LDLIBSOPTIONS=-lm `pkg-config --libs comedilib` `pkg-config --libs xaw7`
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bmc_x86: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bmc_x86 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bmc_x86 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
 ${OBJECTDIR}/_ext/1472/bmc.o: ../bmc.c 
 	${MKDIR} -p ${OBJECTDIR}/_ext/1472
@@ -73,6 +74,11 @@ ${OBJECTDIR}/_ext/1360920745/daq.o: ../bmc/daq.c
 	${MKDIR} -p ${OBJECTDIR}/_ext/1360920745
 	${RM} "$@.d"
 	$(COMPILE.c) -g `pkg-config --cflags comedilib` `pkg-config --cflags xaw7`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1360920745/daq.o ../bmc/daq.c
+
+${OBJECTDIR}/_ext/1360920745/main.o: ../bmc/main.cpp 
+	${MKDIR} -p ${OBJECTDIR}/_ext/1360920745
+	${RM} "$@.d"
+	$(COMPILE.cc) -g `pkg-config --cflags comedilib` `pkg-config --cflags xaw7`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1360920745/main.o ../bmc/main.cpp
 
 ${OBJECTDIR}/bmcnet.o: bmcnet.c 
 	${MKDIR} -p ${OBJECTDIR}
