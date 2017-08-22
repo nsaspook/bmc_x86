@@ -7,7 +7,7 @@
  */
 
 #include <stdlib.h>
-#include <stdio.h>	/* for printf() */
+#include <stdio.h> /* for printf() */
 #include <unistd.h>
 #include <string.h>
 #include <comedilib.h>
@@ -22,8 +22,8 @@
 #include <X11/Xaw/Cardinals.h>  /* Definition of ZERO. */
 #include <X11/Xaw/Command.h> 
 
-#define MDB	FALSE
-#define MDB1	FALSE
+#define MDB FALSE
+#define MDB1 FALSE
 
 struct bmcdata bmc;
 unsigned char HAVE_DIO = TRUE, HAVE_AI = TRUE;
@@ -105,7 +105,7 @@ int main(int argc, char *argv[])
 		if (++update >= 60) {
 			update = 0;
 			if (MDB1) {
-				printf("\r\nUpdate number %d ", update_num++);
+				printf(" Update number %d ", update_num++);
 				time(&rawtime);
 				printf("%ld ", rawtime);
 			}
