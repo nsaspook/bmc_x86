@@ -1,38 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<configurationDescriptor version="95">
+<configurationDescriptor version="100">
   <logicalFolder name="root" displayName="root" projectFiles="true" kind="ROOT">
     <logicalFolder name="HeaderFiles"
                    displayName="Header Files"
                    projectFiles="true">
-      <logicalFolder name="bmc" displayName="bmc" projectFiles="true">
-        <logicalFolder name="bmc" displayName="bmc" projectFiles="true">
-          <itemPath>../bmc/main.cpp</itemPath>
-        </logicalFolder>
-        <logicalFolder name="bmc_x86" displayName="bmc_x86" projectFiles="true">
-          <logicalFolder name="dist" displayName="dist" projectFiles="true">
-            <logicalFolder name="Debug" displayName="Debug" projectFiles="true">
-              <logicalFolder name="GNU-Linux-x86"
-                             displayName="GNU-Linux-x86"
-                             projectFiles="true">
-                <itemPath>dist/Debug/GNU-Linux-x86/bmc_x86</itemPath>
-              </logicalFolder>
-            </logicalFolder>
-            <logicalFolder name="Release" displayName="Release" projectFiles="true">
-              <logicalFolder name="GNU-Linux-x86"
-                             displayName="GNU-Linux-x86"
-                             projectFiles="true">
-                <logicalFolder name="package" displayName="package" projectFiles="true">
-                  <itemPath>dist/Release/GNU-Linux-x86/package/bmcx86.tar</itemPath>
-                </logicalFolder>
-                <itemPath>dist/Release/GNU-Linux-x86/bmc_x86</itemPath>
-              </logicalFolder>
-            </logicalFolder>
-          </logicalFolder>
-          <itemPath>Makefile</itemPath>
-        </logicalFolder>
-        <itemPath>../Makefile</itemPath>
-        <itemPath>../comedilib.h</itemPath>
-      </logicalFolder>
       <itemPath>../bmc/bmc.h</itemPath>
       <itemPath>bmcnet.h</itemPath>
       <itemPath>../bmc/daq.h</itemPath>
@@ -80,8 +51,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../Makefile" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../bmc.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="../bmc/bmc.h" ex="false" tool="3" flavor2="0">
@@ -90,24 +59,9 @@
       </item>
       <item path="../bmc/daq.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../bmc/main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../comedilib.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Makefile" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="bmcnet.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="bmcnet.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dist/Debug/GNU-Linux-x86/bmc_x86" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dist/Release/GNU-Linux-x86/bmc_x86" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dist/Release/GNU-Linux-x86/package/bmcx86.tar"
-            ex="false"
-            tool="3"
-            flavor2="0">
       </item>
     </conf>
     <conf name="Release" type="1">
@@ -136,8 +90,6 @@
           </linkerLibItems>
         </linkerTool>
       </compileType>
-      <item path="../Makefile" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="../bmc.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="../bmc/bmc.h" ex="false" tool="3" flavor2="0">
@@ -146,24 +98,9 @@
       </item>
       <item path="../bmc/daq.h" ex="false" tool="3" flavor2="0">
       </item>
-      <item path="../bmc/main.cpp" ex="false" tool="1" flavor2="0">
-      </item>
-      <item path="../comedilib.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="Makefile" ex="false" tool="3" flavor2="0">
-      </item>
       <item path="bmcnet.c" ex="false" tool="0" flavor2="0">
       </item>
       <item path="bmcnet.h" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dist/Debug/GNU-Linux-x86/bmc_x86" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dist/Release/GNU-Linux-x86/bmc_x86" ex="false" tool="3" flavor2="0">
-      </item>
-      <item path="dist/Release/GNU-Linux-x86/package/bmcx86.tar"
-            ex="false"
-            tool="3"
-            flavor2="0">
       </item>
     </conf>
   </confs>

@@ -6,18 +6,18 @@
  */
 
 #ifndef BMCNET_H
-#define	BMCNET_H
+#define BMCNET_H
 
-#ifdef	__cplusplus
+#ifdef __cplusplus
 extern "C" {
 #endif
 
-    int bmc_client(char *);
+	int bmc_client(char *);
 
 
-#ifdef	__cplusplus
+#ifdef __cplusplus
 }
 #endif
 
-#endif	/* BMCNET_H */
+#endif /* BMCNET_H */
 

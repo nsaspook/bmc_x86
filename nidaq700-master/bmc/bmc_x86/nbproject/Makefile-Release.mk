@@ -21,7 +21,7 @@ FC=gfortran
 AS=as
 
 # Macros
-CND_PLATFORM=GNU-Linux-x86
+CND_PLATFORM=GNU-Linux
 CND_DLIB_EXT=so
 CND_CONF=Release
 CND_DISTDIR=dist
@@ -35,9 +35,8 @@ OBJECTDIR=${CND_BUILDDIR}/${CND_CONF}/${CND_PLATFORM}
 
 # Object Files
 OBJECTFILES= \
-	${OBJECTDIR}/_ext/1472/bmc.o \
-	${OBJECTDIR}/_ext/1360920745/daq.o \
-	${OBJECTDIR}/_ext/1360920745/main.o \
+	${OBJECTDIR}/_ext/5c0/bmc.o \
+	${OBJECTDIR}/_ext/511e00a9/daq.o \
 	${OBJECTDIR}/bmcnet.o
 
 
@@ -63,24 +62,19 @@ LDLIBSOPTIONS=`pkg-config --libs comedilib` `pkg-config --libs xaw7`
 
 ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bmc_x86: ${OBJECTFILES}
 	${MKDIR} -p ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}
-	${LINK.cc} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bmc_x86 ${OBJECTFILES} ${LDLIBSOPTIONS}
+	${LINK.c} -o ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bmc_x86 ${OBJECTFILES} ${LDLIBSOPTIONS}
 
-${OBJECTDIR}/_ext/1472/bmc.o: ../bmc.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1472
+${OBJECTDIR}/_ext/5c0/bmc.o: ../bmc.c
+	${MKDIR} -p ${OBJECTDIR}/_ext/5c0
 	${RM} "$@.d"
-	$(COMPILE.c) -O3 `pkg-config --cflags comedilib` `pkg-config --cflags xaw7`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1472/bmc.o ../bmc.c
+	$(COMPILE.c) -O3 `pkg-config --cflags comedilib` `pkg-config --cflags xaw7`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/5c0/bmc.o ../bmc.c
 
-${OBJECTDIR}/_ext/1360920745/daq.o: ../bmc/daq.c 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1360920745
+${OBJECTDIR}/_ext/511e00a9/daq.o: ../bmc/daq.c
+	${MKDIR} -p ${OBJECTDIR}/_ext/511e00a9
 	${RM} "$@.d"
-	$(COMPILE.c) -O3 `pkg-config --cflags comedilib` `pkg-config --cflags xaw7`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1360920745/daq.o ../bmc/daq.c
+	$(COMPILE.c) -O3 `pkg-config --cflags comedilib` `pkg-config --cflags xaw7`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/511e00a9/daq.o ../bmc/daq.c
 
-${OBJECTDIR}/_ext/1360920745/main.o: ../bmc/main.cpp 
-	${MKDIR} -p ${OBJECTDIR}/_ext/1360920745
-	${RM} "$@.d"
-	$(COMPILE.cc) -O2 `pkg-config --cflags comedilib` `pkg-config --cflags xaw7`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/_ext/1360920745/main.o ../bmc/main.cpp
-
-${OBJECTDIR}/bmcnet.o: bmcnet.c 
+${OBJECTDIR}/bmcnet.o: bmcnet.c
 	${MKDIR} -p ${OBJECTDIR}
 	${RM} "$@.d"
 	$(COMPILE.c) -O3 `pkg-config --cflags comedilib` `pkg-config --cflags xaw7`   -MMD -MP -MF "$@.d" -o ${OBJECTDIR}/bmcnet.o bmcnet.c
@@ -91,7 +85,6 @@ ${OBJECTDIR}/bmcnet.o: bmcnet.c
 # Clean Targets
 .clean-conf: ${CLEAN_SUBPROJECTS}
 	${RM} -r ${CND_BUILDDIR}/${CND_CONF}
-	${RM} ${CND_DISTDIR}/${CND_CONF}/${CND_PLATFORM}/bmc_x86
 
 # Subprojects
 .clean-subprojects:

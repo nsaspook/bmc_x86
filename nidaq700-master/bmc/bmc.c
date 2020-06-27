@@ -22,11 +22,11 @@
 #include <X11/Xaw/Cardinals.h>  /* Definition of ZERO. */
 #include <X11/Xaw/Command.h> 
 
-#define MDB FALSE
-#define MDB1 FALSE
+#define MDB true
+#define MDB1 true
 
 struct bmcdata bmc;
-unsigned char HAVE_DIO = TRUE, HAVE_AI = TRUE;
+unsigned char HAVE_DIO = true, HAVE_AI = true;
 
 String fallback_resources[] = {"*Label.Label:    BMC", NULL};
 
@@ -84,28 +84,31 @@ int main(int argc, char *argv[])
 	XtAddCallback(command, XtNcallback, quit, NULL);
 	XtRealizeWidget(toplevel);
 
+#ifdef __x86_64__ // for PC with DAQCARD
+	if (init_daq() < 0) HAVE_AI = false;
+	if (init_dio() < 0) HAVE_DIO = false;
+#else // for RPi with USB DAQ card
+	if (init_daq() < 0) HAVE_AI = false;
+	HAVE_DIO = true;
+#endif
 
-
-	if (init_daq() < 0) HAVE_AI = FALSE;
-	if (init_dio() < 0) HAVE_DIO = FALSE;
-	printf("\r\n Remote DAQ Client running        \r\n");
+	printf("\r\n Remote DAQ Client running  %d %d      \r\n",HAVE_AI, HAVE_DIO);
 
 	while (HAVE_AI && HAVE_DIO) {
 		get_data_sample();
 		if (++update >= 59) {
 			if (MDB) {
-				printf("         \r\n");
-				printf(" PV Voltage %2.4fV Sensor Supply Voltage %2.3fV Sensor Voltage %2.3fV Sensor Current %2.2fA Panel Power %3.2fW, Digital %u %u %u %u, Raw data %x, %x, %x, Null %x",
+				printf("\r\n PV Voltage %2.4fV Sensor Supply Voltage %2.3fV Sensor Voltage %2.3fV Sensor Current %2.2fA Panel Power %3.2fW, Digital %u %u %u %u, Raw data %x, %x, %x, Null %x",
 				bmc.pv_voltage, bmc.cm_voltage, bmc.cm_current, bmc.cm_amps, bmc.pv_voltage * bmc.cm_amps,
 				bmc.datain.D5, bmc.datain.D4, bmc.datain.D1, bmc.datain.D0,
 				bmc.raw[PVV_C], bmc.raw[CMV_C], bmc.raw[CMA_C], bmc.raw[PVV_NULL]);
 			}
 		}
-		usleep(100000);
+		usleep(100);
 		if (++update >= 60) {
 			update = 0;
 			if (MDB1) {
-				printf(" Update number %d ", update_num++);
+				printf("\r\n Update number %d ", update_num++);
 				time(&rawtime);
 				printf("%ld ", rawtime);
 			}
